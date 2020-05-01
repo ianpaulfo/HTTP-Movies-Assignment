@@ -68,6 +68,8 @@ app.post("/api/movies", (req, res) => {
     const newMovie = req.body;
     newMovie["id"] = movieId;
     movies.push(newMovie);
+    const starsArray = req.body.stars.split(",")
+    newMovie.stars = starsArray.slice(0, starsArray.length -1)
   }
   ++movieId;
   res.status(201).json(movies);

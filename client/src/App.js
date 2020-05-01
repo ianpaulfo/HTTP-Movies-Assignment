@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
+import AddMovie from "./Movies/AddMovie";
 import SavedList from "./Movies/SavedList";
 import MovieList from "./Movies/MovieList";
 import Movie from "./Movies/Movie";
@@ -30,10 +31,11 @@ const App = () => {
 
       <Route exact path="/">
         <MovieList movies={movieList} />
+        <AddMovie getMovieList={getMovieList}/>
       </Route>
 
       <Route path="/movies/:id">
-        <Movie addToSavedList={addToSavedList} />
+        <Movie addToSavedList={addToSavedList} getMovieList={getMovieList} />
       </Route>
     </>
   );
